@@ -24,8 +24,8 @@ const SignIn = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="bg-white p-8 rounded shadow-md w-96">
+        <div className="flex items-center">
+            <div className="py-2 rounded w-96">
             <h2 className="text-2xl font-semibold mb-6">Login</h2>
             <form>
                 <div className="mb-4">

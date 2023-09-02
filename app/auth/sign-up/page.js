@@ -25,8 +25,8 @@ const SignUp = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="bg-white p-8 rounded shadow-md w-96">
+        <div className="flex items-center">
+            <div className="py-2 rounded w-96">
             <h2 className="text-2xl font-semibold mb-6">Register</h2>
             <form>
                 <div className="mb-4">
@@ -35,6 +35,10 @@ const SignUp = () => {
                     type="text"
                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
                     placeholder="Your Name"
+                    label="Name"
+                    name="name"
+                    value={name}
+                    onChange={handleChange}
                 />
                 </div>
                 <div className="mb-4">
@@ -43,6 +47,10 @@ const SignUp = () => {
                     type="email"
                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
                     placeholder="Your Email"
+                    label="Email"
+                    name="email"
+                    value={email}
+                    onChange={handleChange}
                 />
                 </div>
                 <div className="mb-4">
@@ -51,11 +59,16 @@ const SignUp = () => {
                     type="password"
                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
                     placeholder="Your Password"
+                    label="Password"
+                    name="password"
+                    value={password}
+                    onChange={handleChange}
                 />
                 </div>
                 <div className="mt-6">
                 <button
                     type="submit"
+                    onClick={handleSubmit}
                     className="w-full bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-600 transition duration-300"
                 >
                     Register
