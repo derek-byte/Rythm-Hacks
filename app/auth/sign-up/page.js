@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 
 const SignUp = () => {
+    const [busy, setBusy] = useState(false);
     const [userInfo, setUserInfo] = useState({
         name: "",
         email: "",
@@ -16,12 +17,14 @@ const SignUp = () => {
     };
 
     const handleSubmit = async (e) => {
+        setBusy(true);
         e.preventDefault();
         const res = await fetch("api/auth/users", {
             method: "POST",
             body: JSON.stringify(userInfo)
         }).then((res) => res.json());
         console.log(res);
+        setBusy(false);
     };
 
     return (
@@ -70,6 +73,8 @@ const SignUp = () => {
                     type="submit"
                     onClick={handleSubmit}
                     className="w-full bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-600 transition duration-300"
+                    disabled={busy}
+                    style={{opacity: busy ? 0.5 : 1}}
                 >
                     Register
                 </button>
