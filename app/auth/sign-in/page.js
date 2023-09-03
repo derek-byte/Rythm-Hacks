@@ -22,22 +22,20 @@ const SignIn = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(email, password)
-        const res = await signIn("credentials", {
+        const res = await signIn('credentials', {
+            email: userInfo.email, // Provide your user's email
+            password: userInfo.password, // Provide your user's password
             redirect: false,
-            email,
-            password,
-        });
-        console.log(res?.error)
-        if (res?.error) return setError(res.error)
-        console.log(res?.error)
-        // router.replace("/profile");
+          });
+        if (res?.error) return setError(res.error);
+        router.replace("/profile");
     };
 
     return (
         <div className="flex items-center">
             <div className="py-2 rounded w-96">
             <h2 className="text-2xl font-semibold mb-6">Login</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 {error ? (
                     <div className="mb-4">
                         <div className="px-5 py-2 text-white bg-red-500 rounded-md">{error}</div>
@@ -69,7 +67,6 @@ const SignIn = () => {
                 </div>
                 <div className="mt-6">
                 <button
-                    onClick={handleSubmit}
                     type="submit"
                     className="w-full bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-600 transition duration-300"
                 >

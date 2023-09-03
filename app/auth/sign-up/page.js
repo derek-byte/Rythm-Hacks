@@ -22,7 +22,7 @@ const SignUp = () => {
         const res = await fetch("api/auth/users", {
             method: "POST",
             body: JSON.stringify(userInfo)
-        }).then((res) => res.json());
+        })
         console.log(res);
         setBusy(false);
     };
